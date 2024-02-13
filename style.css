@@ -2,7 +2,8 @@
 
 :root {
   --main-fs: 4.5rem;
-  --btn-fs: 2.5rem;
+  --status-btn-fs: 2.5rem;
+  --reset-btn-fs: 2rem;
   --letter-fs: 1.25rem;
   --main-font: 'Josefin Sans', sans-serif;
   --main-color: #a10000;
@@ -45,7 +46,7 @@ body {
   line-height: 1.2;
 }
 
-/* .reset button,  */
+.reset button, 
 .answer button {
   font-weight: 800;
   font-style: normal;
@@ -56,7 +57,6 @@ body {
   border-radius: 4px;
   color: var(--main-color);
   display: inline-block;
-  font-size: var(--btn-fs);
   text-transform: uppercase;
   margin: 0.5rem;
   padding: 0.5rem 1.5rem 0.75rem;
@@ -66,15 +66,27 @@ body {
   cursor: pointer;
 }
 
-.reset button:hover,
+.answer button {
+  font-size: var(--status-btn-fs);
+}
+
+.reset button {
+  font-size: var(--reset-btn-fs);
+}
+
+/* .reset button:hover,
 .answer button:hover{
   background-color: var(--main-color);
   border: solid 2px var(--main-color);
   color: #fff;
+} */
+
+.reset {
+  margin-top: 180px;
 }
 
 #envelope {
-  margin: 100px;
+  margin: 50px;
   position: relative;
   width: 500px;
   height: 250px;
@@ -309,7 +321,8 @@ body {
 @media (max-width: 992px) {
   :root {
     --main-fs: 3.5rem;
-    --btn-fs: 2.25rem;
+    --status-btn-fs: 2.5rem;
+    --reset-btn-fs: 2rem;
     --letter-fs: 1.5rem;
   }
 
@@ -321,7 +334,8 @@ body {
 @media (max-width: 576px) {
   :root {
     --main-fs: 1.5rem;
-    --btn-fs: 1rem;
+    --status-btn-fs: 1rem;
+    --reset-btn-fs: 0.9rem;
     --letter-fs: 1.1rem;
   }
 

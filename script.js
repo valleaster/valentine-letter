@@ -10,6 +10,9 @@ $( document ).ready(function() {
     
     var singleStatus = false;
 
+    var liar = $('#liar');
+    var liar_status = $('.liar-status');
+
     envelope_con.hide();
 
     single.click(function() {
@@ -27,12 +30,29 @@ $( document ).ready(function() {
         if (singleStatus) {
             setSingleColorScheme();
             message.text('Cheers to loving ourselves this year! Please buy yourself a nice meal and spoil yourself today okay??!!');
+            liar_status.text('Taken');
         } else if (!singleStatus) {
             setTakenColorScheme();
             message.text("Hope you're happy with your partner on this day! At least one of us should be happy today...");
+            liar_status.text('Single');
         }
-        open()
+        open();
     }
+
+    liar.click(function(){
+        var isEnvelopeOpen = envelope.hasClass("open");
+
+        singleStatus = !singleStatus;
+
+        if (isEnvelopeOpen) {
+            close();
+            setTimeout(function () {
+                showEnvelope();
+            }, 1500); 
+        } else {
+            showEnvelope();
+        }
+    })
 
     function setSingleColorScheme() {
         document.body.setAttribute("theme", "single");
@@ -59,5 +79,4 @@ $( document ).ready(function() {
         envelope.addClass("close")
            .removeClass("open");
     }
-   
 });
