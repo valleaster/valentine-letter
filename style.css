@@ -3,6 +3,9 @@
 :root {
   --main-fs: 4.5rem;
   --btn-fs: 2.5rem;
+  --letter-fs: 1.25rem;
+  --main-font: 'Josefin Sans', sans-serif;
+  --main-color: #a10000;
 }
 
 [theme="single"] {
@@ -28,7 +31,7 @@ body {
 }
 
 #qna-container {
-  height: 100vh;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,22 +39,22 @@ body {
 }
 
 .main-text {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--main-font);
   font-weight: 800;
   font-size: var(--main-fs);
   line-height: 1.2;
 }
 
-.answer button,
-.reset button {
+/* .reset button,  */
+.answer button {
   font-weight: 800;
   font-style: normal;
   transition: all 0.1s linear;
   -webkit-appearance: none;
   background-color: transparent;
-  border: solid 2px #ff5757;
+  border: solid 2px var(--main-color);
   border-radius: 4px;
-  color: #ff5757;
+  color: var(--main-color);
   display: inline-block;
   font-size: var(--btn-fs);
   text-transform: uppercase;
@@ -63,17 +66,17 @@ body {
   cursor: pointer;
 }
 
-.reset button:hover {
-  background-color: #fc9d9d;
-  color: #a10000;
+.reset button:hover,
+.answer button:hover{
+  background-color: var(--main-color);
+  border: solid 2px var(--main-color);
+  color: #fff;
 }
 
 #envelope {
   margin: 100px;
   position: relative;
-  /* width: 280px; */
   width: 500px;
-  /* height: 180px; */
   height: 250px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -139,7 +142,8 @@ body {
   right: 5%;
   height: auto;
   z-index: 1;
-  font-size: 1.25rem;
+  font-size: var(--letter-fs);
+  font-family: var(--main-font);
 }
 
 .words.line1 {
@@ -261,7 +265,7 @@ body {
     top: 0;
   }
   100% {
-    top: -600px;
+    top: -900px;
   }
 }
 @keyframes slideUp {
@@ -269,7 +273,7 @@ body {
     top: 0;
   }
   100% {
-    top: -600px;
+    top: -900px;
   }
 }
 @-webkit-keyframes sideSway {
@@ -294,9 +298,50 @@ body {
 }
 
 .envlope-wrapper {
-  height: 380px;
+  /* height: 380px; */
+  margin-bottom: 20px;
 }
 
 .reset {
   text-align: center;
+}
+
+@media (max-width: 992px) {
+  :root {
+    --main-fs: 3.5rem;
+    --btn-fs: 2.25rem;
+    --letter-fs: 1.5rem;
+  }
+
+  #envelope {
+    margin-top: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --main-fs: 1.5rem;
+    --btn-fs: 1rem;
+    --letter-fs: 1.1rem;
+  }
+
+  #envelope {
+    width: 300px;
+    height: 215px;
+    margin-top: 125px;
+  }
+
+  .pocket {
+    border-left: 150px solid var(--pocket-side-color);
+    border-right: 150px solid var(--pocket-side-color);
+    border-bottom: 125px solid var(--pocket-bottom-color);
+    border-top: 100px solid transparent;
+  }
+
+  .flap {
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-top: 120px solid var(--flap-color);
+  }
 }
